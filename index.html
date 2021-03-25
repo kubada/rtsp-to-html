@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,22 +5,17 @@
 </head>
 <body>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-<video id="video" width="400" height="300" controls autoplay></video>
+<video id="video" width="400" height="300" controls autoplay muted></video>
 <script>
   var video = document.getElementById('video');
+  var videoSrc = './index1.m3u8';
   if (Hls.isSupported()) {
     var hls = new Hls();
-    hls.loadSource('/index1.m3u8');
+    hls.loadSource(videoSrc);
     hls.attachMedia(video);
-    hls.on(Hls.Events.MANIFEST_PARSED, function() {
-      video.play();
-    });
   }
   else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-    video.src = '/index1.m3u8';
-    video.addEventListener('loadedmetadata', function() {
-      video.play();
-    });
+    video.src = videoSrc;
   }
 </script>
 </body>
