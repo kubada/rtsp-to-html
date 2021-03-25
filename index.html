@@ -5,10 +5,10 @@
 </head>
 <body>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-<video id="video" width="400" height="300" controls autoplay muted></video>
+<video id="video" width="400" height="300" title="ABC" controls autoplay muted></video>
 <script>
   var video = document.getElementById('video');
-  var videoSrc = './index1.m3u8';
+  var videoSrc = './index.m3u8';
   if (Hls.isSupported()) {
     var hls = new Hls();
     hls.loadSource(videoSrc);
